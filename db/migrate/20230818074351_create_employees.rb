@@ -8,7 +8,7 @@ class CreateEmployees < ActiveRecord::Migration[7.0]
       t.string :department
       t.string :phone
       t.string :company
-      t.boolean :deleteStatus
+      t.boolean :deleteStatus, default: false
 
       t.timestamps
     end

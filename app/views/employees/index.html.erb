@@ -1,8 +1,45 @@
 <h1>Employees</h1>
+<div class="table-container">
+    <table class="tableEmployee">
+        <tr>
+            <th>Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Nick Name</th>
+            <th>Code</th>
+            <th>Department</th>
+            <th>Phone</th>
+            <th>Company</th>
+            <th>Delete Status</th>
+            <th></th>
+            <th></th>
+        </tr>
 
-<ul>
+        <% @employees.each do |employee|%>
+            <tr>
+                <td><%= employee.id %></td>
+                <td><%= employee.firstName %></td>
+                <td><%= employee.lastName %></td>
+                <td><%= employee.nickName %></td>
+                <td><%= employee.code %></td>
+                <td><%= employee.department %></td>
+                <td><%= employee.phone %></td>
+                <td><%= employee.company %></td>
+                <td><%= employee.deleteStatus %></td>
+                <td><button class="button edit-button"><%= link_to "Edit", edit_employee_path(employee.id), class: "edit-link" %></button></td>
+                <td><button class="button delete-button"><%= link_to "Delete", employee_path(employee.id), class: "delete-link", data: {
+                    turbo_method: :delete, turbo_confirm: "Are you sure?"
+                    } %></button></td>
+                <!-- <td class="button edit-button"><%= link_to "Edit", edit_employee_path(employee.id), class: "edit-link" %></td>
+                <td class="button delete-button"><%= link_to "Delete", employee_path(employee.id), class: "delete-link", data: {
+                    turbo_method: :delete, turbo_confirm: "Are you sure?"
+                    } %></td> -->
+            </tr>
+        <% end %>
+    </table>
+</div>
+<!-- <ul>
     <% @employees.each do |employee|%>
-        <!-- <%= employee.inspect %> -->
         <li>
             <%= employee.id %>/
             <%= employee.firstName %>/
@@ -13,8 +50,12 @@
             <%= employee.phone %>/
             <%= employee.company %>/
             <%= employee.deleteStatus %>
+            <%= link_to "Edit Employee", edit_employee_path(employee.id) %>
+            <%= link_to "Delete Employee", employee_path(employee.id), data: {
+                turbo_method: :delete, turbo_confirm: "Are you sure?"
+                } %>
         </li>
     <% end %>
-</ul>
+</ul> -->
 
 <%= link_to "New Employee", new_employee_path %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_18_082018) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_22_062811) do
   create_table "employees", force: :cascade do |t|
     t.string "firstName"
     t.string "lastName"
@@ -19,7 +19,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_18_082018) do
     t.string "department"
     t.string "phone"
     t.string "company"
-    t.boolean "deleteStatus"
+    t.boolean "deleteStatus", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -30,7 +30,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_18_082018) do
     t.string "itemType"
     t.integer "amount"
     t.boolean "status"
-    t.boolean "deleteStatus"
+    t.boolean "deleteStatus", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -39,7 +39,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_18_082018) do
     t.datetime "returnDate"
     t.integer "employee_id", null: false
     t.integer "equipment_id", null: false
-    t.boolean "deleteStatus"
+    t.boolean "deleteStatus", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["employee_id"], name: "index_recordings_on_employee_id"
