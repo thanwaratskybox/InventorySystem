@@ -12,6 +12,11 @@ Rails.application.routes.draw do
   # root "articles#index"
   get "/employees", to: "employees#index"
   get "/employees/:id", to: "employees#show"
-  get "/employees/new", to: "employees#new"
-  get "/employees/create", to: "employees#create"
+
+  get "/employees/new", to: "employees#new", as: :new_employee
+  post "/employees", to: "employees#create"
+
+  get "/employees/:id/edit", to: "employees#edit"
+  # put "/employees", to: "employees#update"
+  # resources :employees
 end

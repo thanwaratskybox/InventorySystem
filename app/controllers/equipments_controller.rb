@@ -1,5 +1,6 @@
 class EquipmentsController < ApplicationController
   def index
+    @equiptments = Equiptment.all
   end
 
   def show
