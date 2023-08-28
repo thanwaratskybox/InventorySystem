@@ -1,2 +1,11 @@
-<h1>Equipments#new</h1>
-<p>Find me in app/views/equipments/new.html.erb</p>
+<h1 class="text-center">New Equipment</h1>
+
+<%= render "form", equipment: @equipment %>
+
+<div class="container">
+    <%= form_with model: @equipment, url: equipments_path do |form| %>
+        <div>
+            <%= form.submit 'Create Equipment', class: "btn btn-outline-primary" %>
+        </div>
+    <% end %>
+</div>

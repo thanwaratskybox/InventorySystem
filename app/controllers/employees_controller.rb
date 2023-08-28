@@ -31,7 +31,8 @@ class EmployeesController < ApplicationController
     @employee = Employee.find(params[:id])
 
     if @employee.update(employee_params)
-      redirect_to(@employee)
+      # redirect_to(@employee)
+      redirect_to(employees_path)
     else
       render(:edit, status: :unprocessable_entity)
     end
@@ -48,7 +49,4 @@ class EmployeesController < ApplicationController
     params.require(:employee).permit(:firstName, :lastName, :nickName, :code, :department, :phone, :company)
   end
 
-  def employee_delete_status
-    params.require(:employee).permit(:deleteStatus)
-  end
 end

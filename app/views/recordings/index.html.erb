@@ -1,31 +1,40 @@
-<h1>Recordings#index</h1>
-<p>Find me in app/views/recordings/index.html.erb</p>
+<div class="h1 text-center">Recordings</div>
 
-<%# id %>
-<%# return date %>
-<%# employeeId %>
-<%# equipmentId %>
-<%# delete %>
+<div class="container">
+  <table class="table text-white table-dark table-striped table-bordered border-info">
+    <thead>
+      <tr>
+        <th scope="col">Index</th>
+        <th scope="col">Return date</th>
+        <th scope="col">Employee id</th>
+        <th scope="col">Equipment id</th>
+        <th scope="col">Loan status</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
 
-<ul>
-    <% @recordings.each do |recording|%>
-        <li>
-            <%= recording.id %>/
-            <%= recording.returnDate %>/
-            <%= recording.employee_id %>/
-            <%= recording.equipment_id %>/
-            <%= recording.deleteStatus %>
-        </li>
-    <% end %>
-</ul>
+    <tbody>
+      <% @recordings.each do |recording| %>
+        <tr>
+          <td><%= recording.id %></td>
+          <td><%= recording.returnDate %></td>
+          <td><%= recording.employee_id %></td>
+          <td><%= recording.equipment_id %></td>
+          <td>
+              <% if recording.equipment.status == true %>
+                  <div class="font-monospace">Loaning</div>
+              <% end %>
+          </td>
+          <td><%= link_to "Edit", edit_recording_path(recording.id), class: "no-underline btn btn-outline-warning" %></td>
+          <td><%= link_to "Delete", delete_recording_path(recording.id), class: "no-underline btn btn-outline-danger", 
+            data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+          </td>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
-  <%# create_table "recordings", force: :cascade do |t|
-    t.datetime "returnDate"
-    t.integer "employee_id", null: false
-    t.integer "equipment_id", null: false
-    t.boolean "deleteStatus"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["employee_id"], name: "index_recordings_on_employee_id"
-    t.index ["equipment_id"], name: "index_recordings_on_equipment_id"
-  end %>
+<div class="container">
+  <%= link_to "New recording", new_recording_path, class: "btn btn-outline-primary" %>
+</div>

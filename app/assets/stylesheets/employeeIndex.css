@@ -1,46 +1,7 @@
-.table-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* height: 100vh; */
-}
-
-.tableEmployee {
-    width: 50%;
-    border:1px solid black;
-}
-
-.button {
-    /* border: 1px solid black;
-    color: white;
-    text-align: center;
-    font-size: 20px;
-    cursor: pointer; */
-
-    display: block;
-    min-width: 100px;
-    appearance: none;
-    border: 1px solid black;
-    border-radius: 5px;
-    color: #fff;
-    padding: 8px 16px;
-    font-size: 16px;
-}
-
-.edit-button {
-    background-color: #555555;
-}
-
-.delete-button {
-    background-color: #f44336;
-}
-
-.edit-link {
-    color: white;
+.no-underline {
     text-decoration: none;
 }
 
-.delete-link {
-    color: white;
-    text-decoration: none;
-}
+.btn-text {
+    color: #f0f0f0; /* สีของตัวหนังสือ ปรับตามสีพื้นหลังของปุ่ม */
+  }  

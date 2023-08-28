@@ -1,0 +1,35 @@
+<div class="container">
+    <%= form_with model: @recording, url: recordings_path do |form| %>
+        <div class="row">
+
+            <div>
+                <%= form.label :returnDate %>
+                <%= form.text_field :returnDate, class: "form-control", placeholder: "Return date" %>
+                <% @recording.errors.full_messages_for(:returnDate).each do |message| %>
+                    <div><%= message %></div>
+                <% end %>
+            </div>
+
+            <div>
+                <%= form.label :employee_id %>
+                <%= form.text_field :employee_id, class: "form-control", placeholder: "Employee id" %>
+                <% @recording.errors.full_messages_for(:employee_id).each do |message| %>
+                    <div><%= message %></div>
+                <% end %>
+            </div>
+
+            <div>
+                <%= form.label :equipment_id %>
+                <%= form.text_field :equipment_id, class: "form-control", placeholder: "Equipment id" %>
+                <% @recording.errors.full_messages_for(:equipment_id).each do |message| %>
+                    <div><%= message %></div>
+                <% end %>
+            </div>
+
+            <div>
+                <%= form.submit "Create recording", class: "btn btn-outline-primary" %>
+            </div>
+
+        </div>
+    <% end %>
+</div>

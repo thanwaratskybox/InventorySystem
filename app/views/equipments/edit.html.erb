@@ -1,0 +1,11 @@
+<h1>Edit Article</h1>
+
+<%= render "form", equipment: @equipment %>
+
+<div class="container">
+    <%= form_with model: @equipment do |form| %>
+        <div>
+            <%= form.submit 'Edit Employee', class: "btn btn-outline-primary" %>
+        </div>
+    <% end %>
+</div>

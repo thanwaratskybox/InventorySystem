@@ -1,58 +1,60 @@
-<%= form_with model: @employee do |form| %>
-    <div>
-        <%= form.label :firstName %>
-        <%= form.text_field :firstName %>
-        <% @employee.errors.full_messages_for(:firstName).each do |message| %>
-            <div><%= message %></div>
-        <% end %>
-    </div>
+<div class="container">
+    <%= form_with model: @employee do |form| %>
+        <div class="row">
 
-    <div>
-        <%= form.label :lastName %><br>
-        <%= form.text_area :lastName %>
-        <% @employee.errors.full_messages_for(:lastName).each do |message| %>
-            <div><%= message %></div>
-        <% end %>
-    </div>
+            <div class="col-6 mb-4">
+                <%= form.label :firstName %>
+                <%= form.text_field :firstName, class: "form-control", id: "", placeholder: "First name" %>
+                <% @employee.errors.full_messages_for(:firstName).each do |message| %>
+                    <div><%= message %></div>
+                <% end %>
+            </div>
 
-    <div>
-        <%= form.label :nickName %><br>
-        <%= form.text_area :nickName %>
-        <% @employee.errors.full_messages_for(:nickName).each do |message| %>
-            <div><%= message %></div>
-        <% end %>
-    </div>
+            <div class="col-6 mb-4">
+                <%= form.label :lastName %>
+                <%= form.text_field :lastName, class: "form-control", id: "", placeholder: "Last name" %>
+                <% @employee.errors.full_messages_for(:lastName).each do |message| %>
+                    <div><%= message %></div>
+                <% end %>
+            </div>
 
-    <div>
-        <%= form.label :code %><br>
-        <%= form.text_area :code %>
-        <% @employee.errors.full_messages_for(:code).each do |message| %>
-            <div><%= message %></div>
-        <% end %>
-    </div>
+            <div class="col-12 mb-4">
+                <%= form.label :nickName %><br>
+                <%= form.text_field :nickName, class: "form-control", id: "", placeholder: "Last name" %>
+                <% @employee.errors.full_messages_for(:nickName).each do |message| %>
+                    <div><%= message %></div>
+                <% end %>
+            </div>
 
-    <div>
-        <%= form.label :department %><br>
-        <%= form.text_area :department %>
-        <% @employee.errors.full_messages_for(:department).each do |message| %>
-            <div><%= message %></div>
-        <% end %>
-    </div>
+            <div class="col-3 mb-4">
+                <%= form.label :code %><br>
+                <%= form.text_field :code, class: "", id: "", placeholder: "Code"%>
+                <% @employee.errors.full_messages_for(:code).each do |message| %>
+                    <div><%= message %></div>
+                <% end %>
+            </div>
 
-    <div>
-        <%= form.label :phone %>
-        <%= form.text_area :phone %>
-        <% @employee.errors.full_messages_for(:phone).each do |message| %>
-            <div><%= message %></div>
-        <% end %>
-    </div>
+            <div class="col-3 mb-4">
+                <%= form.label :department %><br>
+                <%= form.text_field :department, class: "", id: "", placeholder: "Department" %>
+                <% @employee.errors.full_messages_for(:department).each do |message| %>
+                    <div><%= message %></div>
+                <% end %>
+            </div>
 
-    <div>
-        <%= form.label :company %>
-        <%= form.text_area :company %>
-    </div>
+            <div class="col-3 mb-4">
+                <%= form.label :phone %>
+                <%= form.text_field :phone, class: "", id: "", placeholder: "Phone" %>
+                <% @employee.errors.full_messages_for(:phone).each do |message| %>
+                    <div><%= message %></div>
+                <% end %>
+            </div>
 
-    <div>
-        <%= form.submit %>
-    </div>
-<% end %>
+            <div class="col-3 mb-4">
+                <%= form.label :company %>
+                <%= form.text_field :company, class: "", id: "", placeholder: "Company" %>
+            </div>
+
+        </div>
+    <% end %>
+</div>

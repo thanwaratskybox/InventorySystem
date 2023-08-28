@@ -1,4 +1,49 @@
-<h1>Equipments#index</h1>
-<p>Find me in app/views/equipments/index.html.erb</p>
+<div class="h1 text-center">Equipments Loaning</div>
 
+<div class="container">
+    <table class="table text-white table-dark table-striped table-bordered border-info">
+        <thead>
+            <tr>
+                <th scope="col">Index</th>
+                <th scope="col">Item name</th>
+                <th scope="col">Serial number</th>
+                <th scope="col">Item type</th>
+                <th scope="col">Loan status</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Start</th>
+                <th scope="col">Duration</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @equipments.each do |equipment| %>
+                <tr>
+                    <td><%= equipment.id %></td>
+                    <td><%= equipment.itemName %></td>
+                    <td><%= equipment.serialNumber %></td>
+                    <td><%= equipment.itemType %></td>
+                    <td>
+                        <% if equipment.status == true %>
+                            <div class="font-monospace">Loaning</div>
+                        <% end %>
+                    </td>
+                    <td><%= equipment.amount %></td>
+                    <td><%= equipment.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
+                    <% duration_seconds = Time.now - equipment.created_at %>
+                    <% duration_days = (duration_seconds / 1.day).to_i %>
+                    <% duration_hours = ((duration_seconds % 1.day) / 1.hour).to_i %>
+                    <td><%= "#{duration_days} days #{duration_hours} hours" %></td>
+                    <td><%= link_to "Edit", edit_equipment_path(equipment.id), class: "no-underline btn btn-outline-warning" %></td>
+                    <td><%= link_to "Receive", equipment_path(equipment.id), class: "no-underline btn btn-outline-success",
+                        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+                    </td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>
 
+<div class="container">
+    <%= link_to "New equipment", new_equipment_path, class: "btn btn-outline-primary" %>
+</div>
